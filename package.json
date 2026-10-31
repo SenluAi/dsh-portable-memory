@@ -1,6 +1,6 @@
 {
   "name": "dsh-portable-memory",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "分层便携记忆内置进 DeepSeek Harness：rules/profile/preferences/tasks/recent/fragments 六层，读写本地 store/memory.json，7 个工具直接可调用。",
   "type": "module",
   "main": "lib/index.js",
