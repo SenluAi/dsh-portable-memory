@@ -1,0 +1,16 @@
+node_modules/
+dist/
+build/
+out/
+.venv/
+__pycache__/
+*.dmg
+*.zip
+*.exe
+*.log
+*.env
+daisy.env
+cred*.txt
+api*.txt
+*.key
+.git-credentials
