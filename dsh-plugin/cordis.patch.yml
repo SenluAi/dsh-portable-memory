@@ -1,0 +1,7 @@
+# DSH bundle profile patch.
+# 让本插件可被 dsh 安装并随宿主启动加载。
+# `id`   = Cordis 插件 id（见 lib/index.js 的 export const name）
+# `name` = npm 包名（从 node_modules 解析）
+- insert:
+    - id: portable-memory
+      name: "dsh-portable-memory"

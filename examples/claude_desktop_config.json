@@ -1,0 +1,9 @@
+{
+  "_说明": "Claude Desktop 用：Windows 放在 %APPDATA%\\Claude\\claude_desktop_config.json，macOS 放在 ~/Library/Application Support/Claude/claude_desktop_config.json。",
+  "mcpServers": {
+    "memory": {
+      "command": "python",
+      "args": ["C:/Users/Me/Documents/portable-memory/mcp_server.py"]
+    }
+  }
+}

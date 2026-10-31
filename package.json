@@ -1,7 +1,7 @@
 {
   "name": "dsh-portable-memory",
-  "version": "1.0.1",
-  "description": "分层便携记忆内置进 DeepSeek Harness：rules/profile/preferences/tasks/recent/fragments 六层，读写本地 store/memory.json，7 个工具直接可调用。",
+  "version": "1.1.0",
+  "description": "本地分层记忆：多语言向量检索、证据化事实纠错、归档和隐私删除，共享十个 CLI/MCP/Cordis 工具。",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
@@ -9,9 +9,24 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "lib",
+    "lib/index.js",
+    "dsh-plugin/lib/index.js",
+    "dsh-plugin/runtime/memory.py",
+    "dsh-plugin/runtime/mcp_server.py",
+    "dsh-plugin/runtime/service.py",
+    "dsh-plugin/runtime/semantic.py",
+    "dsh-plugin/runtime/facts.py",
+    "dsh-plugin/runtime/LICENSE",
     "cordis.patch.yml"
   ],
+  "scripts": {
+    "prepack": "node dsh-plugin/scripts/prepare-runtime.mjs",
+    "test": "node --test dsh-plugin/test/bridge.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SenluAi/dsh-portable-memory.git"
+  },
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"

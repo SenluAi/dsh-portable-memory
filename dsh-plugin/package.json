@@ -1,0 +1,46 @@
+{
+  "name": "dsh-portable-memory",
+  "version": "1.1.0",
+  "description": "本地分层记忆：多语言向量检索、证据化事实纠错、归档和隐私删除，共享十个 CLI/MCP/Cordis 工具。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "runtime/memory.py",
+    "runtime/mcp_server.py",
+    "runtime/service.py",
+    "runtime/semantic.py",
+    "runtime/facts.py",
+    "runtime/LICENSE",
+    "cordis.patch.yml"
+  ],
+  "scripts": {
+    "prepack": "node scripts/prepare-runtime.mjs",
+    "test": "node --test test/bridge.test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "dsh-bundle",
+    "deepseek-harness",
+    "cordis",
+    "memory"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "meta": {
+    "title": "便携记忆",
+    "description": "六层分层记忆：永久规则、画像、偏好、任务、近期上下文、碎片；自带召回、归档、恢复、统计。"
+  }
+}

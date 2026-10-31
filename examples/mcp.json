@@ -1,0 +1,12 @@
+{
+  "_说明": "通用 MCP 配置片段。把占位路径换成 portable-memory 目录的真实绝对路径，粘进客户端的 mcpServers 字段。",
+  "mcpServers": {
+    "memory": {
+      "command": "python",
+      "args": ["C:/Users/Me/Documents/portable-memory/mcp_server.py"],
+      "env": {
+        "MEMORY_STORE": "C:/Users/Me/Documents/portable-memory/store/memory.json"
+      }
+    }
+  }
+}

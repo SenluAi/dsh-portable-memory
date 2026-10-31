@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "portable-memory"
+version = "1.1.0"
+description = "Private layered memory with local multilingual vectors and evidence-aware fact correction"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+
+[project.optional-dependencies]
+semantic = ["fastembed>=0.7,<1"]
+
+[project.scripts]
+portable-memory = "memory:main"
+portable-memory-mcp = "mcp_server:main"
+
+[tool.setuptools]
+py-modules = ["memory", "mcp_server", "service", "semantic", "facts"]

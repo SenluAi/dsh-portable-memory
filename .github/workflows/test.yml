@@ -1,0 +1,26 @@
+name: Memory regression
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-15]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: python -X utf8 tests/test_memory.py
+      - run: python -X utf8 -m unittest discover -s tests -p test_service.py -v
+      - run: node --test dsh-plugin/test/bridge.test.mjs
+      - run: npm pack --json
+        working-directory: dsh-plugin
+      - run: python tests/check_plugin_package.py dsh-plugin/dsh-portable-memory-1.1.0.tgz
+      - run: npm pack --json
+      - run: python tests/check_plugin_package.py dsh-portable-memory-1.1.0.tgz
